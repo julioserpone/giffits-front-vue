@@ -104,7 +104,6 @@ export default {
                     'Content-type': 'application/x-www-form-urlencoded',
                 }
             }).then(response => {
-                console.log(response);
                 this.$router.push({ name: 'home' }) 
             }).catch(e => {
                 this.errors = e.response.data.errors;
