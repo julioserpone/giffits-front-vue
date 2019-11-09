@@ -24,7 +24,7 @@
                         <td>{{ personal.email }}</td>
                         <td>{{ personal.identification }}</td>
                         <td>
-                            <a href="#" @click="log(personal)"><span class="icon"><i class="fas fa-edit"></i></span></a> &nbsp;
+                            <router-link :to="`/person/edit/${personal.id}`"><span class="icon"><i class="fas fa-edit"></i></span> &nbsp;</router-link>
                             <a href="#" @click="log(personal)"><span class="icon has-text-danger"><i class="fas fa-trash"></i></span></a>
                         </td>
                     </tr>
