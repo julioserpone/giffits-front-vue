@@ -16,16 +16,16 @@
                 </tr>
             </thead>
             <tbody>
-                <template v-for="personal in personal">
-                    <tr v-bind:key="personal.id">
-                        <td>{{ personal.id }}</td>
-                        <td>{{ personal.name }}</td>
-                        <td>{{ personal.last_name }}</td>
-                        <td>{{ personal.email }}</td>
-                        <td>{{ personal.identification }}</td>
+                <template v-for="person in personal">
+                    <tr v-bind:key="person.id">
+                        <td>{{ person.id }}</td>
+                        <td>{{ person.name }}</td>
+                        <td>{{ person.last_name }}</td>
+                        <td>{{ person.email }}</td>
+                        <td>{{ person.identification }}</td>
                         <td>
-                            <router-link :to="`/person/edit/${personal.id}`"><span class="icon"><i class="fas fa-edit"></i></span> &nbsp;</router-link>
-                            <a href="#" @click="log(personal)"><span class="icon has-text-danger"><i class="fas fa-trash"></i></span></a>
+                            <router-link :to="`/person/edit/${person.id}`"><span class="icon"><i class="fas fa-edit"></i></span> &nbsp;</router-link>
+                            <a href="#" @click="deletePerson(person)"><span class="icon has-text-danger"><i class="fas fa-trash"></i></span></a>
                         </td>
                     </tr>
                 </template>
@@ -57,9 +57,29 @@ export default {
         }
     },
     methods: {
-        log: function (personal) {
+        findPersonal: function () {
 
-            console.log(personal);
+            axios.get('http://localhost:8000/personal')
+            .then(response => {
+                this.personal = response.data
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            .finally(() => this.isLoading = false);
+        },
+        deletePerson: function (person) {
+
+            if(confirm("Do you really want to delete?")) {
+                this.isLoading = true;
+                axios.delete("http://localhost:8000/personal/" + person.id + "/delete")
+                .then(resp => {
+                    this.findPersonal();
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+            }
         }
     }
 }
