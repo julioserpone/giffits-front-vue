@@ -1,5 +1,8 @@
 <template>
     <div>
+        <nav>
+            <router-link to='/person/create' class="button is-link">Create Person</router-link>
+        </nav>
         <span class="help is-info" v-if="isLoading"><span class="icon"><i class="fas fa-spinner fa-pulse"></i></span> Loading...</span>
         <table class="table" v-else>
             <thead>

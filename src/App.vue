@@ -13,17 +13,12 @@
         </p>
       </div>
     </div>
-    <personal-list />
+    <router-view />
   </div>
 </template>
 
 <script>
-import PersonalList from './components/PersonalList.vue'
-
 export default {
 
-  components: {
-    PersonalList
-  }
 }
 </script>
