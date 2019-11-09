@@ -1,28 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Home msg="Test Giffits Frontend Vue.js"/>
+  <div class="container is-fluid">
+    <div class="columns is-vcentered ">
+      <div class="column is-2">
+        <figure class="image is-128x128">
+          <img alt="Vue logo" src="./assets/logo.png">
+        </figure>
+      </div>
+      <div class="column is-5">
+        <h1>Test Giffits Frontend Vue.js</h1>
+        <p>
+          Implementation of a simple frontend with VUE to manage personal data
+        </p>
+      </div>
+    </div>
+    <personal-list />
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue'
+import PersonalList from './components/PersonalList.vue'
 
 export default {
-  name: 'app',
+
   components: {
-    Home
+    PersonalList
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span class="help is-info"  v-if="isLoading">Loading...</span>
+        <span class="help is-info" v-if="isLoading"><span class="icon"><i class="fas fa-spinner fa-pulse"></i></span> Loading...</span>
         <table class="table" v-else>
             <thead>
                 <tr>
@@ -21,9 +21,8 @@
                         <td>{{ personal.email }}</td>
                         <td>{{ personal.identification }}</td>
                         <td>
-                            <form @submit.prevent="onSubmit(personal)">
-                                <button class="button is-primary">Delete</button>
-                            </form>
+                            <a href="#" @click="log(personal)"><span class="icon"><i class="fas fa-edit"></i></span></a> &nbsp;
+                            <a href="#" @click="log(personal)"><span class="icon has-text-danger"><i class="fas fa-trash"></i></span></a>
                         </td>
                     </tr>
                 </template>
@@ -34,8 +33,8 @@
 </template>
 
 <script>
+
 import axios from 'axios'
-import Vue from 'vue'
 
 export default {
     data() {
@@ -55,8 +54,9 @@ export default {
         }
     },
     methods: {
-        onSubmit(personal) {
-            
+        log: function (personal) {
+
+            console.log(personal);
         }
     }
 }

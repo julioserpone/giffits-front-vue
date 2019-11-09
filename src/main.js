@@ -1,11 +1,10 @@
 import Vue from 'vue'
+import App from './App.vue';
+import PersonalList from './components/PersonalList.vue';
+import VueRouter from 'vue-router'
 
 Vue.config.productionTip = false;
-
-import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-
-import PersonalList from './components/PersonalList.vue';
 
 const routes = [
   { path: '/', component: PersonalList },
@@ -18,5 +17,5 @@ const router = new VueRouter({
 
 new Vue({
   router,
-  render: h => h(PersonalList)
+  render: h => h(App)
 }).$mount('#app')
