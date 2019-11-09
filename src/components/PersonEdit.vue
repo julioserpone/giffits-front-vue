@@ -71,7 +71,7 @@ export default {
         try {
 
             this.id = this.$route.params.id;
-            axios.get("http://localhost:8000/personal/" + this.id + "/edit")
+            axios.get(this.$hostname + "/personal/" + this.id + "/edit")
             .then(response => {
                 this.name = response.data.name;
                 this.last_name = response.data.last_name;
@@ -92,7 +92,7 @@ export default {
             this.isLoading = true;
             this.withError = false;
             this.errors = '';
-            axios.put("http://localhost:8000/personal/" + this.id + "/update", 
+            axios.put(this.$hostname + "/personal/" + this.id + "/update", 
             { 
                 name: this.name,
                 last_name: this.last_name,

@@ -71,7 +71,7 @@ export default {
             this.isLoading = true;
             this.withError = false;
             this.errors = '';
-            axios.post('http://localhost:8000/personal/create', 
+            axios.post(this.$hostname + "/personal/create", 
             { 
                 name: this.name,
                 last_name: this.last_name,

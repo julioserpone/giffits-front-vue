@@ -49,7 +49,7 @@ export default {
     async created () {
         
         try {
-            const response = await axios.get('http://localhost:8000/personal')
+            const response = await axios.get(this.$hostname + "/personal")
             this.personal = response.data
             this.isLoading = false
         } catch(e) {
@@ -59,7 +59,7 @@ export default {
     methods: {
         findPersonal: function () {
 
-            axios.get('http://localhost:8000/personal')
+            axios.get(this.$hostname + '/personal')
             .then(response => {
                 this.personal = response.data
             })
@@ -72,7 +72,7 @@ export default {
 
             if(confirm("Do you really want to delete?")) {
                 this.isLoading = true;
-                axios.delete("http://localhost:8000/personal/" + person.id + "/delete")
+                axios.delete(this.$hostname + "/personal/" + person.id + "/delete")
                 .then(resp => {
                     this.findPersonal();
                 })

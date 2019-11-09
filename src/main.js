@@ -7,6 +7,7 @@ import VueRouter from 'vue-router'
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter)
+Vue.prototype.$hostname = 'http://localhost:8000';
 
 const routes = [
   { path: '/', component: PersonalList, name: 'home' },
